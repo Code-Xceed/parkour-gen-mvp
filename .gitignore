@@ -1,0 +1,14 @@
+# Build outputs
+build/
+out/
+bin/
+*.class
+sources.txt
+# Gradle
+.gradle/
+# IDE
+.idea/
+*.iml
+.vscode/
+# Fabric / MC run dir
+run/
