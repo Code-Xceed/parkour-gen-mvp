@@ -1,0 +1,23 @@
+// Fabric Loom build for the in-game mod. Depends on the pure-JVM core library.
+// NOTE: pin the plugin + mapping versions to whatever is published for Minecraft 26.1.2.
+plugins {
+    id 'fabric-loom' version '1.8-SNAPSHOT'
+    id 'java'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+
+repositories { mavenCentral() }
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // The deterministic generator core (built from ../parkour-gen-core).
+    implementation files('../parkour-gen-core/build/libs/parkour-gen-core-0.1.0.jar')
+}
