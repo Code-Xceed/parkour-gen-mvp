@@ -1,0 +1,30 @@
+# NOTE: This integration's GitHub auth lacks the `workflow` scope, so it could not
+# write directly to .github/workflows/. Move this file to .github/workflows/ci.yml
+# in your own commit (or push from your machine) to enable CI.
+
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  core:
+    name: Build & verify parkour-gen-core
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Compile core
+        run: |
+          cd parkour-gen-core
+          find src/main/java -name '*.java' > sources.txt
+          mkdir -p build/classes
+          javac -d build/classes @sources.txt
+      - name: Determinism + 10k-course solvability self-test
+        run: |
+          cd parkour-gen-core
+          java -cp build/classes dev.codexceed.parkour.cli.GenCli --selftest
