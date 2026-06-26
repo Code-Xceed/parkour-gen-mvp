@@ -1,0 +1,2 @@
+// Root build. parkour-gen-core is a pure-JVM library with zero Minecraft deps.
+// The Fabric mod lives in parkour-fabric-mod/ as a separate Loom build.
