@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "parkourgen",
+  "version": "${version}",
+  "name": "Parkour Generator",
+  "description": "Deterministic parkour course generator (MVP). Use /parkourgen <seed> <tier> <length>.",
+  "authors": ["Code-Xceed"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": { "main": ["dev.codexceed.parkour.mod.ParkourMod"] },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "minecraft": "*",
+    "java": ">=21"
+  }
+}
