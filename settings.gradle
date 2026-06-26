@@ -1,0 +1,3 @@
+rootProject.name = 'parkour-gen'
+include 'parkour-gen-core'
+// parkour-fabric-mod is a standalone Gradle (Loom) build -- see its own settings.gradle.
